@@ -102,4 +102,45 @@ public class EmployeeController {
         employeeService.runorstop(status,id);
         return  Result.success();
     }
+
+    /**
+     * 查询回显
+     * @return
+     */
+    @GetMapping("/{id}")
+    public  Result findme(@PathVariable long id){
+    log.info("查询id.{}",id);
+    Employee employee= employeeService.findme(id);
+    return  Result.success(employee);
+    }
+
+    /**
+     * 更改员工信息
+     * @return
+     */
+    @PutMapping
+    public Result  update(@RequestBody EmployeeDTO employeeDTO){
+        log.info("更改信息.{}",employeeDTO);
+        employeeService.update(employeeDTO);
+
+        return Result.success();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
