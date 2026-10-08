@@ -92,5 +92,14 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
-
+    /**
+     * 账号启用禁用
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    public  Result runorstop(@PathVariable Integer status,long id){
+        log.info("账号id.{}与账号状态.{}",id,status);
+        employeeService.runorstop(status,id);
+        return  Result.success();
+    }
 }
